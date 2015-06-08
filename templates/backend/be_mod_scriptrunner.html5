@@ -1,0 +1,31 @@
+<div id="tl_buttons">
+    <a class="header_back" onclick="Backend.getScrollOffset()" accesskey="b" title="<?php echo specialchars($GLOBALS['TL_LANG']['MSC']['backBTTitle']) ?>" href="<?php echo $this->getReferer() ?>"><?php echo $GLOBALS['TL_LANG']['MSC']['backBT'] ?></a>
+</div>
+
+<h2 class="sub_headline"><?php echo $GLOBALS['TL_LANG']['scriptrunner']['list']['headline'] ?></h2>
+
+<?php echo \Message::generate() ?>
+
+<div id="scriptrunner_list" class="tl_listing_container list_view">
+
+    <?php if ($this->result): ?>
+        <div class="result">
+            <?php echo $this->result ?>
+        </div>
+    <?php endif ?>
+
+    <p><?php echo $GLOBALS['TL_LANG']['scriptrunner']['list']['intro'] ?></p>
+
+        <?php foreach ($this->scripts as $extension => &$scripts): ?>
+            <h3><?php echo ucfirst($extension) ?></h3>
+
+            <ul class="scripts">
+                <?php foreach ($scripts as &$script): ?>
+                    <li class="script script_<?php echo $extension ?> box">
+                        <a href="<?php echo $this->addToUrl('run=' . $script['hash']) ?>" onclick="if (!confirm('<?php printf($GLOBALS['TL_LANG']['scriptrunner']['list']['execConfirm'], ucfirst($extension), $script['name']) ?>')) return false; Backend.getScrollOffset();"><?php echo $script['name'] ?></a>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+        <?php endforeach ?>
+    </ul>
+</div>
