@@ -59,7 +59,7 @@ class BackendModuleScriptrunner extends \Contao\BackendModule
                 'name'      => basename($parts[$length-1], '.php'),
                 'extension' => $parts[$length-3],
                 'abs_path'  => $file,
-                'rel_path'  => '../system/modules/fewomanager-office/scriptrunner/MarkAllBookingsAsViewed.php',
+                'rel_path'  => '..' . DIRECTORY_SEPARATOR . 'system' . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $extension . DIRECTORY_SEPARATOR . 'scriptrunner' . DIRECTORY_SEPARATOR . basename($parts[$length-1]),
                 'hash'      => md5($file),
             );
         }
