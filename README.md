@@ -14,16 +14,18 @@ Let’s assume our extension is called example and we want to provide a Scriptru
 
 Create a script file called **system/modules/your-ext/scriptrunner/UpdateTimestampsOfAllArticles.php** with the following content:
 
-    <?php
+```php
+<?php
 
-    class UpdateTimestampsOfAllArticles extends \Contao\Backend
+class UpdateTimestampsOfAllArticles extends \Contao\Backend
+{
+    public function run()
     {
-        public function run()
-        {
-            $sql       = 'UPDATE tl_article SET tstamp=UNIX_TIMESTAMP()';
-            $statement = $this->Database->prepare($sql);
-            $result    = $statement->execute();
+        $sql       = 'UPDATE tl_article SET tstamp=UNIX_TIMESTAMP()';
+        $statement = $this->Database->prepare($sql);
+        $result    = $statement->execute();
 
-            return sprintf('Timestamps of %u articles updated.', $result->affectedRows);
-        }
+        return sprintf('Timestamps of %u articles updated.', $result->affectedRows);
     }
+}
+```
