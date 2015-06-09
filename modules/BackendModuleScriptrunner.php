@@ -5,10 +5,7 @@ namespace Scriptrunner;
 
 class BackendModuleScriptrunner extends \Contao\BackendModule
 {
-    const MODULE_DIR = TL_ROOT . DIRECTORY_SEPARATOR . 'system' . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR;
-
     protected $strTemplate = 'be_mod_scriptrunner';
-
 
     protected function compile()
     {
@@ -43,7 +40,7 @@ class BackendModuleScriptrunner extends \Contao\BackendModule
 
     public static function getScripts()
     {
-        $files = glob(self::MODULE_DIR . '*' . DIRECTORY_SEPARATOR . 'scriptrunner' . DIRECTORY_SEPARATOR . '*.php');
+        $files = glob($moduleDir   = TL_ROOT . DIRECTORY_SEPARATOR . 'system' . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . '*' . DIRECTORY_SEPARATOR . 'scriptrunner' . DIRECTORY_SEPARATOR . '*.php');
 
         $scripts = array();
         foreach ($files as &$file) {
