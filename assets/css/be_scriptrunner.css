@@ -6,12 +6,16 @@
     padding: 15px;
 }
 
-#scriptrunner_list .scripts li a {
-    background: #090 url(/system/modules/scriptrunner/assets/icons/run.png) no-repeat 5px 5px;
-    padding: 5px 5px 5px 25px;
-    border-radius: 5px;
-    color: #fff;
+#scriptrunner_list .scripts li {
+    margin: 0 0 15px 0;
 }
-#scriptrunner_list .scripts li a:hover {
-    background-color: #0c0;
-}
+
+    #scriptrunner_list .scripts li a {
+        background: #090 url(/system/modules/scriptrunner/assets/icons/run.png) no-repeat 5px 5px;
+        padding: 5px 5px 5px 25px;
+        border-radius: 5px;
+        color: #fff;
+    }
+    #scriptrunner_list .scripts li a:hover {
+        background-color: #0c0;
+    }
